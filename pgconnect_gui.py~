@@ -24,7 +24,7 @@ except AttributeError:
         return QtGui.QApplication.translate(context, text, disambig)
 
 class Ui_pgDialog(object):
-    def setuppgUi(self, pgDialog):
+    def setupUi(self, pgDialog):
         pgDialog.setObjectName(_fromUtf8("pgDialog"))
         pgDialog.resize(277, 395)
         self.pgpushButton = QtGui.QPushButton(pgDialog)

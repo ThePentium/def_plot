@@ -33,11 +33,14 @@
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>400</x>
+      <x>322</x>
       <y>500</y>
-      <width>113</width>
+      <width>281</width>
       <height>27</height>
      </rect>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>
@@ -56,6 +59,7 @@
    <addaction name="actionImport_PGlayer"/>
    <addaction name="actionPlot_Sensors"/>
    <addaction name="actionPan"/>
+   <addaction name="actionGetCoordinates"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionImport_Vlayer">
@@ -124,6 +128,14 @@
    </property>
    <property name="toolTip">
     <string>Import_PGlayer</string>
+   </property>
+  </action>
+  <action name="actionGetCoordinates">
+   <property name="text">
+    <string>getCoordinates</string>
+   </property>
+   <property name="toolTip">
+    <string>getCoordinates</string>
    </property>
   </action>
  </widget>
