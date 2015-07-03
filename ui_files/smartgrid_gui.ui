@@ -6,43 +6,26 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>894</width>
-    <height>590</height>
+    <width>931</width>
+    <height>555</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QFrame" name="frame">
-    <property name="geometry">
-     <rect>
-      <x>9</x>
-      <y>9</y>
-      <width>891</width>
-      <height>481</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit">
-    <property name="geometry">
-     <rect>
-      <x>322</x>
-      <y>500</y>
-      <width>281</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QFrame" name="frame">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QToolBar" name="toolBar">
    <property name="windowTitle">
@@ -56,9 +39,9 @@
    </attribute>
    <addaction name="actionImport_Vlayer"/>
    <addaction name="actionImport_Rlayer"/>
-   <addaction name="actionImport_PGlayer"/>
-   <addaction name="actionPlot_Sensors"/>
    <addaction name="actionPan"/>
+   <addaction name="actionPlot_Sensors"/>
+   <addaction name="actionImport_PGlayer"/>
    <addaction name="actionGetCoordinates"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -68,7 +51,7 @@
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>../images/v_import.png</normaloff>../images/v_import.png</iconset>
+     <normaloff>images/v_import.png</normaloff>images/v_import.png</iconset>
    </property>
    <property name="text">
     <string>Import Vector Layer</string>
@@ -83,7 +66,7 @@
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>../images/r_import.png</normaloff>../images/r_import.png</iconset>
+     <normaloff>images/r_import.png</normaloff>images/r_import.png</iconset>
    </property>
    <property name="text">
     <string>Import Raster Layer</string>
@@ -98,7 +81,7 @@
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>../images/plot.png</normaloff>../images/plot.png</iconset>
+     <normaloff>images/plot.png</normaloff>images/plot.png</iconset>
    </property>
    <property name="text">
     <string>Plot Sensors</string>
@@ -113,7 +96,7 @@
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>../images/pan.png</normaloff>../images/pan.png</iconset>
+     <normaloff>images/pan.png</normaloff>images/pan.png</iconset>
    </property>
    <property name="text">
     <string>Pan</string>
@@ -123,19 +106,20 @@
    </property>
   </action>
   <action name="actionImport_PGlayer">
-   <property name="text">
-    <string>Import_PGlayer</string>
+   <property name="icon">
+    <iconset>
+     <normaloff>images/connect.png</normaloff>images/connect.png</iconset>
    </property>
-   <property name="toolTip">
+   <property name="text">
     <string>Import_PGlayer</string>
    </property>
   </action>
   <action name="actionGetCoordinates">
    <property name="text">
-    <string>getCoordinates</string>
+    <string>GetCoordinates</string>
    </property>
    <property name="toolTip">
-    <string>getCoordinates</string>
+    <string>GetCoordinates</string>
    </property>
   </action>
  </widget>

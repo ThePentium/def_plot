@@ -15,13 +15,32 @@ import os
 
 from smartgrid_gui import Ui_MainWindow
 from login_gui import Ui_Dialog
-from pgconnect_gui import Ui_pgDialog
+from connect_gui import Ui_pgDialog
 
 # Environment variable QGISHOME must be set to the install directory
 # before running the application
 
 QGIS_PREFIX = os.getenv('QGISHOME')
 uri=QgsDataSourceURI()
+
+class MapCoords(object):
+  def __init__(self, mainwindow):
+    self.mainwindow = mainwindow
+    # This one is to capture the mouse move for coordinate display
+    
+    QObject.connect(mainwindow.canvas, SIGNAL('xyCoordinates(const QgsPoint&)'), self.updateCoordsDisplay)
+    self.latlon = QLabel("0.0 , 0.0")
+    self.latlon.setFixedWidth(300)
+    self.latlon.setAlignment(Qt.AlignHCenter)
+    self.latlon.setFrameStyle(QFrame.StyledPanel)
+    self.mainwindow.statusbar.addPermanentWidget(self.latlon)
+
+  # Signal handeler for updating coord display
+  def updateCoordsDisplay(self, point):
+
+  	capture_string = QString(str(point.x()) + " , " + str(point.y()))
+  	self.latlon.setText(capture_string)
+  	
 class pgconnect(QDialog,Ui_pgDialog):
     global uri
     def __init__(self, parent=None):
@@ -68,6 +87,7 @@ class SmartGrid(QMainWindow, Ui_MainWindow):
         
         self.canvas = QgsMapCanvas()
         self.canvas.useImageToRender(False)
+        self.map_coords = MapCoords(self)
         self.actionGetCoordinates.triggered.connect(self.clickcoord)
         # Reference to root node of layer tree
         
@@ -110,7 +130,7 @@ class SmartGrid(QMainWindow, Ui_MainWindow):
         
     def func(self, p):
         capture_string = QString(str(p.x()) + " , " +str(p.y()))
-        self.le.setText(capture_string)
+        self.statusbar.showMessage("Selected: "+capture_string)
                              
     
     def onactionImport_Rlayer_toggled(self, checked=None):
